@@ -1,14 +1,22 @@
 const Koa = require("koa");
 const cors = require("koa2-cors");
 const Router = require("koa-router");
+const { proxy } = require("./proxy")
+const {koaBody} = require("koa-body")
 
 const app = new Koa();
 const router = new Router();
 
-router.get("/receiver", async (ctx) => {
-    const res = receiver();
-    ctx.body = res;
-  });
+router.get(/proxy\/*/, async (ctx) => {
+  await proxy(ctx)
+  ctx.body = res
+});
+
+router.post(/proxy\/*/, koaBody(), async (ctx) => {
+  const res = await proxy(ctx)
+  console.log(res)
+  ctx.body = res
+});
 
 app.use(
   cors({
