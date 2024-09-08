@@ -8,7 +8,7 @@ const app = new Koa();
 const router = new Router();
 
 router.get(/proxy\/*/, async (ctx) => {
-  await proxy(ctx)
+  const res = await proxy(ctx)
   ctx.body = res
 });
 
