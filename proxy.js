@@ -2,7 +2,7 @@ const { Axios } = require("axios");
 const { getProxyHttpAgent } = require("proxy-http-agent")
 const https = require('https')
 
-const axios = new Axios({ baseURL: "https://api.gsolo.ai/api/v1", headers: { 'Content-Type': 'application/json' }, httpsAgent: new https.Agent({rejectUnauthorized: false}), insecureHTTPParser: true })
+const axios = new Axios({ baseURL: "https://8.222.211.86/api/v1", headers: { 'Content-Type': 'application/json' }, httpsAgent: new https.Agent({rejectUnauthorized: false}), insecureHTTPParser: true })
 
 const proxy = async (ctx) => {
   let res = null
