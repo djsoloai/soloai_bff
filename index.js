@@ -17,7 +17,7 @@ router.post(/proxy\/*/, koaBody(), async (ctx) => {
   ctx.body = res;
 });
 
-router.get("authInvite", async (ctx) => {
+router.get("/authInvite", async (ctx) => {
   const { code } = ctx.query;
   if (code === "A37b5H") ctx.body = { code: 0, result: true };
   else ctx.body = { code: 0, result: false };
